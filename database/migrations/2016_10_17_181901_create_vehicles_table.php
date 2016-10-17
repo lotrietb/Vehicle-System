@@ -15,6 +15,16 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('owner_name');
+            $table->string('owner_surname');
+            $table->string('owner_contact_no');
+            $table->string('owner_email_address');
+            $table->string('manufacturer');
+            $table->string('type');
+            $table->string('year');
+            $table->string('colour');
+            $table->string('mileage');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

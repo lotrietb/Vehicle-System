@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    @yield('custom_css')
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -83,5 +83,13 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('custom_js')
+    <script type="text/javascript">
+        //hide all alerts 5 seconds after pageload
+        var hideAllAlerts = function(){
+            $("div.alert-success, div.alert-danger").slideUp();
+        };
+        setTimeout(hideAllAlerts, 5000);
+    </script>
 </body>
 </html>

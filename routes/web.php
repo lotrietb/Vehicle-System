@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/vehicle/add', function(){
+    	return view('vehicle.add');
+    });
+    Route::post('/vehicle/save', 'VehicleController@save');
+    Route::get('/vehicle/edit/{id}', 'VehicleController@edit');
+    Route::post('/vehicle/update/{id}', 'VehicleController@update');
+    Route::get('/vehicle/remove/{id}', 'VehicleController@remove');
+});
