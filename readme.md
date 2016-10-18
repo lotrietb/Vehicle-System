@@ -1,27 +1,29 @@
-# Laravel PHP Framework
+# Vehicle System
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This guide provides the setup instructions to get the system up and running, and also information on how to interface with the API.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Setup
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- Clone the repo.
+- CD into the applciation directory.
+- Cope the `.env.example` file to `.env`, then update the database information to point to your mysql database. 
+- Migrate the database using the `php artisan migrate` command. 
+- Next, seed the database using the `php artisan db:seed` command. 
+- Lastly, generate an application key using the `php artisan key:generate` command.
 
-## Official Documentation
+Now, using `php artisan serve` you should be all set to run the application.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+The login credentials are username:**admin@gmail.com** and password:**admin**
 
-## Contributing
+## The API
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+The API exposes 5 endpoints;
+- GET -`/api/vehicles` -> Gets all the vehicles in the system.
+- GET -`/api/vehicles/{id}` -> Get a specific vehicle by passing in the ID.
+- POST -`/api/addvehicle` -> Add a new vehicle
+- `POST -/api/updatevehicle/{id}` -> Update a vehicle, passing in the vehicle ID.
+- GET -`/api/removevehicle/{id}` -> Soft delete a vehicle from the system.  
 
-## Security Vulnerabilities
+When the login user is seeded, an api token is created. This must be used when making requests. Pass the api token as a GET parameter in the URL, `eg. /api/vehicles?api_token=YOUR_TOKEN_HERE`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Additionaly, the api response format can be changed by passing the `format` GET parameter. Available formats are `xml` and `json`. The system defaults to `json`.  `eg. /api/vehicles?api_token=YOUR_TOKEN_HERE&format=FORMAT`
