@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             'Surname' => 'Lotriet',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
+            'api_token' => str_random(60),
         ]);
     }
 }

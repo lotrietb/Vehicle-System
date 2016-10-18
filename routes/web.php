@@ -18,6 +18,11 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/password/reset', function() {
+    	return redirect('/home');
+    });
+
+
 
     Route::get('/vehicle/add', function(){
     	return view('vehicle.add');
