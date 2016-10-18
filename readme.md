@@ -6,7 +6,7 @@ This guide provides the setup instructions to get the system up and running, and
 
 - Clone the repo.
 - CD into the application directory.
-- Cope the `.env.example` file to `.env`, then update the database information to point to your mysql database. 
+- Copy the `.env.example` file to `.env`, then update the database information to point to your mysql database. 
 - Migrate the database using the `php artisan migrate` command. 
 - Next, seed the database using the `php artisan db:seed` command. 
 - Lastly, generate an application key using the `php artisan key:generate` command.
