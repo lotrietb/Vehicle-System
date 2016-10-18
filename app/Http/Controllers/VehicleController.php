@@ -29,11 +29,22 @@ class VehicleController extends Controller
     }
 
     public function edit($id) 
+    {       
+        $vehicle = Vehicle::find($id);
+
+        if (!empty($vehicle)) {
+            return view('vehicle.edit', compact('vehicle'));
+        } else {
+            return redirect('home');
+        }
+    }
+
+    public function view($id) 
     {    	
     	$vehicle = Vehicle::find($id);
 
     	if (!empty($vehicle)) {
-    		return view('vehicle.edit', compact('vehicle'));
+    		return view('vehicle.view', compact('vehicle'));
     	} else {
     		return redirect('home');
     	}

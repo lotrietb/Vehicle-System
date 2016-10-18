@@ -7,6 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Edit vehicle
+                    <a id="homebutton" href="/" class="btn btn-sm btn-success pull-right">
+                      Home
+                    </a>
                 </div>
 
                 <div class="panel-body">

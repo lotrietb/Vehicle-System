@@ -29,6 +29,7 @@
                                         <td>{{ $vehicle->manufacturer. ' ' .$vehicle->type }}</td>
                                         <td>{{ date('d F Y', strtotime($vehicle->created_at)) }}</td>
                                         <td class="text-center">
+                                            <a class='btn btn-success btn-xs view_vehicle' href="/vehicle/view/{{ $vehicle->id }}"> View</a>
                                             <a class='btn btn-info btn-xs edit_vehicle' href="/vehicle/edit/{{ $vehicle->id }}"> Edit</a>
                                             <a href="javascript:void(0)" class="btn btn-danger btn-xs remove_vehicle" data-vehicle="{{ $vehicle->id }}" data-vehicle-name="{{ $vehicle->manufacturer. ' ' .$vehicle->type }}" data-owner-name="{{ $vehicle->owner_name. ' ' .$vehicle->owner_surname }}" data-toggle="modal" data-target="#confirmDeletion" > Del</a>
                                         </td>

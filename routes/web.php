@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     	return view('vehicle.add');
     });
     Route::post('/vehicle/save', 'VehicleController@save');
+    Route::get('/vehicle/view/{id}', 'VehicleController@view');
     Route::get('/vehicle/edit/{id}', 'VehicleController@edit');
     Route::post('/vehicle/update/{id}', 'VehicleController@update');
     Route::get('/vehicle/remove/{id}', 'VehicleController@remove');
